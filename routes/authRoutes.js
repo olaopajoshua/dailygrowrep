@@ -1,0 +1,107 @@
+const express = require("express");
+const bcrypt = require("bcryptjs");
+const User = require("../models/User");
+
+const router = express.Router();
+
+/**
+ * REGISTER
+ */
+router.post("/register", async (req, res) => {
+  try {
+    const { fullName, email, password } = req.body;
+
+    if (!fullName || !email || !password) {
+      return res.status(400).json({ message: "All fields are required" });
+    }
+
+    const userExists = await User.findOne({ email });
+    if (userExists) {
+      return res.status(400).json({ message: "User already exists" });
+    }
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    const user = new User({
+      fullName,
+      email,
+      password: hashedPassword,
+    });
+
+    await user.save();
+
+    res.status(201).json({ message: "Account created successfully" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
+/**
+ * LOGIN
+ */
+router.post("/login", async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    if (!email || !password) {
+      return res.status(400).json({ message: "All fields are required" });
+    }
+
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(400).json({ message: "Invalid credentials" });
+    }
+
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+      return res.status(400).json({ message: "Invalid credentials" });
+    }
+
+  res.status(200).json({
+  message: "Login successful",
+  user: {
+    id: user._id,
+    fullName: user.fullName,
+    email: user.email,
+    streak: user.streak,
+    completed: user.completed,
+    dailyTasks: user.dailyTasks,
+    level: user.level
+  },
+});
+
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
+module.exports = router;
+
+// UPDATE USER STATS
+router.post("/update", async (req, res) => {
+  try {
+    const { email, streak, completed, dailyTasks, level } = req.body;
+
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    user.streak = streak;
+    user.completed = completed;
+    user.dailyTasks = dailyTasks;
+    user.level = level;
+
+    await user.save();
+
+    res.status(200).json({ message: "Stats updated successfully" });
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
