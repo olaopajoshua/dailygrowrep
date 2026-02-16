@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard - DailyGrow</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+<div class="dashboard">
+
+  <aside class="sidebar">
+  
+  <div class="sidebar-top">
+    <h2 class="logo">DailyGrow</h2>
+
+    <nav>
+      <ul>
+        <li class="active">Dashboard</li>
+        <li>Challenges</li>
+        <li>Progress</li>
+        <li>Analytics</li>
+        <li>Goals</li>
+        <li>Notifications</li>
+        <li>Profile</li>
+        <li>Settings</li>
+      </ul>
+    </nav>
+  </div>
+
+  <button id="logoutBtn" class="logout-btn">Logout</button>
+
+</aside>
+
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+
+    <header class="topbar">
+      <h1 id="welcome"></h1>
+      <p class="subtitle">Let’s build consistency today.</p>
+    </header>
+
+    <!-- OVERVIEW STATS -->
+    <section class="stats">
+      <div class="stat-card">
+        <h3>🔥 Streak</h3>
+        <p id="streak">0</p>
+      </div>
+
+      <div class="stat-card">
+        <h3>✅ Completed</h3>
+        <p id="completed">0</p>
+      </div>
+
+      <div class="stat-card">
+  <h3>⭐ Level</h3>
+
+  <select id="levelSelect">
+    <option>Beginner</option>
+    <option>Intermediate</option>
+    <option>Advanced</option>
+  </select>
+</div>
+
+
+      <div class="stat-card">
+  <h3>🎯 Active Goals</h3>
+  <p id="activeGoals">3</p>
+</div>
+    </section>
+
+    <!-- DAILY FOCUS -->
+    <section class="challenge-section">
+      <div class="challenge-card">
+        <h2>Today's Focus</h2>
+        <p id="challengeText">
+          Spend 20 minutes learning something new.
+        </p>
+
+        <button id="completeBtn" class="primary-btn">
+          Mark as Completed
+        </button>
+      </div>
+    </section>
+
+<section class="goals-section">
+ <h2>Daily Tasks</h2>
+
+<div class="goals-grid">
+
+  <div class="goal-card">
+    <p></p>
+    <button class="task-btn" data-task="0">Complete</button>
+  </div>
+
+  <div class="goal-card">
+    <p></p>
+    <button class="task-btn" data-task="1">Complete</button>
+  </div>
+
+  <div class="goal-card">
+    <p></p>
+    <button class="task-btn" data-task="2">Complete</button>
+  </div>
+
+  </div>
+</section>
+
+    <!-- ACTIVITY FEED -->
+    <section class="activity-section">
+      <h2>Recent Activity</h2>
+      <div class="activity-card">Completed yesterday's challenge</div>
+      <div class="activity-card">Reached 7-day streak 🎉</div>
+      <div class="activity-card">Updated profile information</div>
+    </section>
+
+  </main>
+
+</div>
+
+<script src="dashboard.js"></script>
+</body>
+</html>

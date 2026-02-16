@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Create Account</title>
+  <link rel="stylesheet" href="signup.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+<body>
+
+<div class="container">
+  <div class="box">
+    <h2>Create Account</h2>
+    <p class="sub">Start your growth journey today</p>
+
+    <input type="text" placeholder="Full Name">
+    <input type="email" placeholder="Email Address">
+    <input type="password" placeholder="Password">
+    <input type="password" placeholder="Confirm Password">
+
+    <button class="main-btn">Create Account</button>
+
+   <div class="divider">or continue with</div>
+
+   <button onclick="goHome()" class="home-btn">Back to Homepage</button>
+
+<script>
+  function goHome() {
+    window.location.href = "index.html";
+  }
+</script>
+
+
+<div class="social-icons">
+  <a href="#" class="social-icon google">
+    <i class="fab fa-google"></i>
+  </a>
+  <a href="#" class="social-icon facebook">
+    <i class="fab fa-facebook-f"></i>
+  </a>
+  <a href="#" class="social-icon apple">
+    <i class="fab fa-apple"></i>
+  </a>
+</div>
+
+    <p class="switch">
+      Already have an account?
+      <a href="signin.html">Sign in</a>
+    </p>
+  </div>
+</div>
+
+<script src="signup.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign In</title>
+  <link rel="stylesheet" href="signin.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+<body>
+
+<div class="container">
+  <div class="box">
+    <h2>Sign In</h2>
+    <p class="sub">Welcome back, continue your journey</p>
+
+    <input type="email" id="email" placeholder="Email Address">
+    <input type="password" id="password" placeholder="Password">
+
+    <div class="row">
+      <label class="remember">
+        <input type="checkbox">
+        <span>Remember me</span>
+      </label>
+
+      <a href="#" class="forgot">Forgot Password?</a>
+    </div>
+
+    <button class="main-btn" id="loginBtn">Sign In</button>
+
+    <div class="divider">or continue with</div>
+
+    <button onclick="goHome()" class="home-btn">Back to Homepage</button>
+
+<script>
+  function goHome() {
+    window.location.href = "index.html";
+  }
+</script>
+
+<div class="social-icons">
+  <a href="#" class="social-icon google">
+    <i class="fab fa-google"></i>
+  </a>
+  <a href="#" class="social-icon facebook">
+    <i class="fab fa-facebook-f"></i>
+  </a>
+  <a href="#" class="social-icon apple">
+    <i class="fab fa-apple"></i>
+  </a>
+</div>
+
+    <p class="switch">
+      Don’t have an account?
+      <a href="signup.html">Create one</a>
+    </p>
+  </div>
+</div>
+
+<script src="signin.js"></script>
+
+
+</body>
+</html>
