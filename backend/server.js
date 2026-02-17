@@ -15,10 +15,9 @@ app.use(express.json());
 app.use("/api/auth", authRoutes);
 
 // MongoDB connection
+// MongoDB connection
 mongoose
-  .connect(
-    "mongodb+srv://dailygrowuser:vjXLX5PK17cn9aRq@daily-grow.1wd64ge.mongodb.net/dailygrow"
-  )
+  .connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB connected successfully ✅"))
   .catch((err) => console.error("MongoDB connection error ❌", err));
 

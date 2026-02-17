@@ -8,23 +8,31 @@ signupBtn.addEventListener("click", async (e) => {
   const password = document.querySelectorAll('input[type="password"]')[0].value;
   const confirmPassword = document.querySelectorAll('input[type="password"]')[1].value;
 
+  if (!fullName || !email || !password || !confirmPassword) {
+    alert("Please fill all fields");
+    return;
+  }
+
   if (password !== confirmPassword) {
     alert("Passwords do not match");
     return;
   }
 
   try {
-    const response = await fetch("http://localhost:5000/api/auth/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        fullName,
-        email,
-        password,
-      }),
-    });
+    const response = await fetch(
+      "https://dailygrow-backend.onrender.com/api/auth/register",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          fullName,
+          email,
+          password,
+        }),
+      }
+    );
 
     const data = await response.json();
 
@@ -34,7 +42,7 @@ signupBtn.addEventListener("click", async (e) => {
       window.location.href = "signin.html";
     }
   } catch (error) {
-    alert("Something went wrong");
+    alert("Server might be waking up... try again in a few seconds.");
     console.error(error);
   }
 });
