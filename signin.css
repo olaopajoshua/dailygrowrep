@@ -197,3 +197,20 @@ input {
   border: none;
   cursor: pointer;
 }
+
+@media (max-width: 600px) {
+
+  .box {
+    width: 90%;
+    padding: 25px;
+  }
+
+  input {
+    font-size: 14px;
+  }
+
+  .main-btn {
+    font-size: 14px;
+  }
+
+}
