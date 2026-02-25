@@ -12,7 +12,14 @@
 
 <nav class="navbar">
   <div class="logo">DailyGrow</div>
-  <div class="nav-links">
+
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <div class="nav-links" id="navLinks">
     <a href="#mission">Mission</a>
     <a href="#how">How It Works</a>
     <a href="#features">Features</a>
@@ -238,6 +245,15 @@
     © 2026 DailyGrow — All Rights Reserved
   </div>
 </footer>
+
+<script>
+  const hamburger = document.getElementById("hamburger");
+  const navLinks = document.getElementById("navLinks");
+
+  hamburger.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
+</script>
 
 </body>
 </html>
